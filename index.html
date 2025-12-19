@@ -12,39 +12,39 @@
   </style>
 </head>
 <body class="eclipse-bg text-white min-h-screen">
-  <!-- Header with Always-Visible Navigation + Mobile Hamburger -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col items-center md:flex-row md:justify-between">
-      <!-- Centered Logo -->
-      <div class="flex items-center space-x-4 mb-4 md:mb-0">
-        <img src="https://files.catbox.moe/2hkx2q.png" alt="MarceauSolutions Eclipse Logo" class="w-16" />
-        <h1 class="text-2xl font-bold gold-gradient bg-clip-text text-transparent">MARCEAU SOLUTIONS</h1>
-      </div>
+ <!-- Header – Full Navigation on Desktop, Hamburger on Mobile -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <!-- Logo Left -->
+    <a href="/" class="flex items-center space-x-4">
+      <img src="https://files.catbox.moe/2hkx2q.png" alt="MarceauSolutions Eclipse Logo" class="w-16" />
+      <h1 class="text-2xl font-bold gold-gradient bg-clip-text text-transparent">MARCEAU SOLUTIONS</h1>
+    </a>
 
-      <!-- Navigation – Always Visible, Responsive -->
-      <nav class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 text-center">
-        <a href="#contact" class="hover:gold-gradient bg-clip-text text-transparent transition">Contact</a>
-        <a href="/privacy.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Privacy Policy</a>
-        <a href="/terms.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Terms & Conditions</a>
-      </nav>
+    <!-- Desktop Navigation – Always Visible -->
+    <nav class="flex space-x-8">
+      <a href="#contact" class="text-white hover:gold-gradient bg-clip-text text-transparent transition">Contact</a>
+      <a href="/privacy.html" class="text-white hover:gold-gradient bg-clip-text text-transparent transition">Privacy Policy</a>
+      <a href="/terms.html" class="text-white hover:gold-gradient bg-clip-text text-transparent transition">Terms & Conditions</a>
+    </nav>
 
-      <!-- Hamburger (Mobile Only – Gold & Visible) -->
-      <button id="hamburger" class="md:hidden p-3 rounded-full bg-white/10 hover:bg-white/20 focus:outline-none transition">
-        <svg class="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-    </div>
+    <!-- Hamburger Button – Mobile Only (Gold & Visible) -->
+    <button id="hamburger" class="md:hidden p-3 rounded-full bg-white/10 hover:bg-white/20 focus:outline-none transition">
+      <svg class="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
 
-    <!-- Mobile Menu Dropdown (Hidden by Default) -->
-    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-t border-gray-800">
-      <nav class="flex flex-col py-6 px-8 space-y-6 text-center text-lg">
-        <a href="#contact" class="hover:gold-gradient bg-clip-text text-transparent transition">Contact</a>
-        <a href="/privacy.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Privacy Policy</a>
-        <a href="/terms.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Terms & Conditions</a>
-      </nav>
-    </div>
-  </header>
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-t border-gray-800">
+    <nav class="flex flex-col py-6 px-8 space-y-6 text-center text-lg">
+      <a href="#contact" class="text-white hover:gold-gradient bg-clip-text text-transparent transition">Contact</a>
+      <a href="/privacy.html" class="text-white hover:gold-gradient bg-clip-text text-transparent transition">Privacy Policy</a>
+      <a href="/terms.html" class="text-white hover:gold-gradient bg-clip-text text-transparent transition">Terms & Conditions</a>
+    </nav>
+  </div>
+</header>
 
   <!-- Main Content (your existing sections – unchanged) -->
   <main class="pt-32">
