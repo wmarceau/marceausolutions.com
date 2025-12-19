@@ -12,43 +12,42 @@
   </style>
 </head>
 <body class="eclipse-bg text-white min-h-screen">
-  <!-- Header with Hamburger Menu -->
+  <!-- Header with Centered Logo + Gold Hamburger Right -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <!-- Logo -->
-      <a href="/" class="flex items-center space-x-4">
+      <!-- Centered Logo -->
+      <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
         <img src="https://files.catbox.moe/2hkx2q.png" alt="MarceauSolutions Eclipse Logo" class="w-16" />
         <h1 class="text-2xl font-bold gold-gradient bg-clip-text text-transparent">MARCEAU SOLUTIONS</h1>
-      </a>
+      </div>
 
-      <!-- Desktop Menu -->
+      <!-- Desktop Menu (Right) -->
       <nav class="hidden md:flex space-x-8">
-        <a href="/" class="hover:gold-gradient bg-clip-text text-transparent transition">Home</a>
-        <a href="/privacy.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Privacy</a>
-        <a href="/terms.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Terms</a>
+        <a href="#contact" class="hover:gold-gradient bg-clip-text text-transparent transition">Contact</a>
+        <a href="/privacy.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Privacy Policy</a>
+        <a href="/terms.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Terms & Conditions</a>
       </nav>
 
-      <!-- Hamburger Button (Mobile) -->
-      <button id="hamburger" class="md:hidden text-white focus:outline-none">
+      <!-- Gold Hamburger (Top-Right Mobile) -->
+      <button id="hamburger" class="md:hidden text-yellow-500 hover:text-yellow-300 focus:outline-none">
         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
     </div>
 
-    <!-- Mobile Menu -->
+    <!-- Mobile Dropdown -->
     <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-t border-gray-800">
-      <nav class="flex flex-col py-4 px-6 space-y-4 text-lg">
-        <a href="/" class="hover:gold-gradient bg-clip-text text-transparent transition">Home</a>
+      <nav class="flex flex-col py-6 px-8 space-y-6 text-center text-lg">
+        <a href="#contact" class="hover:gold-gradient bg-clip-text text-transparent transition">Contact</a>
         <a href="/privacy.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Privacy Policy</a>
         <a href="/terms.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Terms & Conditions</a>
       </nav>
     </div>
   </header>
 
-  <!-- Main Content (your existing sections – unchanged) -->
-  <main class="pt-24">
-    <!-- Hero -->
+  <!-- Main Content (your existing sections) -->
+  <main class="pt-32">
     <section class="pt-20 pb-32 text-center">
       <div class="max-w-6xl mx-auto px-6">
         <p class="text-2xl md:text-3xl font-light mb-10">
@@ -60,7 +59,6 @@
       </div>
     </section>
 
-    <!-- Services -->
     <section class="py-20 bg-black/60">
       <div class="max-w-7xl mx-auto px-6">
         <h2 class="text-4xl font-bold text-center mb-16 gold-gradient bg-clip-text text-transparent">
@@ -88,7 +86,6 @@
       </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="py-20 text-center">
       <div class="max-w-3xl mx-auto px-6">
         <h2 class="text-4xl font-bold mb-8 gold-gradient bg-clip-text text-transparent">
@@ -103,7 +100,6 @@
       </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-black py-12 text-center text-gray-500">
       <p>© 2025 MarceauSolutions LLC – Naples, FL</p>
       <div class="mt-4">
@@ -113,7 +109,7 @@
     </footer>
   </main>
 
-  <!-- Hamburger Toggle Script -->
+  <!-- Hamburger Script -->
   <script>
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
