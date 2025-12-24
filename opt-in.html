@@ -3,24 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Opt-In for SMS Updates – MarceauSolutions</title>
+  <title>SMS Opt-In – MarceauSolutions LLC</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .gold-gradient { background: linear-gradient(135deg, #FFD700, #E6B800); }
+    .eclipse-bg { background: radial-gradient(circle at center, #111 0%, #000 70%); }
+  </style>
 </head>
-<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center">
-  <div class="max-w-md w-full px-8 py-12 bg-black/80 rounded-lg">
-    <h1 class="text-3xl font-bold text-center mb-8">Subscribe to SMS Updates</h1>
-    <form action="https://formspree.io/f/xdanaaeb" method="POST" class="space-y-6">
-      <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-3 bg-gray-800 rounded" />
-      <input type="tel" name="phone" placeholder="Your Phone Number" required class="w-full px-4 py-3 bg-gray-800 rounded" />
-      <label class="flex items-start space-x-3 text-sm">
-  <input type="checkbox" name="consent" required class="mt-1" />
-  <span>I agree to receive SMS text messages from MarceauSolutions LLC for business updates, appointment reminders, and lead follow-up. Message & data rates may apply. Reply STOP to unsubscribe.</span>
-</label>
-      <button type="submit" class="w-full bg-yellow-500 text-black font-bold py-3 rounded hover:bg-yellow-400">
-        Subscribe
+<body class="eclipse-bg text-white min-h-screen flex items-center justify-center">
+  <!-- Header (same as other pages) -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
+        <img src="https://files.catbox.moe/2hkx2q.png" alt="MarceauSolutions Logo" class="w-16" />
+        <h1 class="text-2xl font-bold gold-gradient bg-clip-text text-transparent">MARCEAU SOLUTIONS</h1>
+      </div>
+      <button id="hamburger" class="md:hidden p-3 rounded-full bg-white/10 hover:bg-white/20">
+        <svg class="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
       </button>
-    </form>
-    <p class="text-xs text-center mt-6 text-gray-400">Privacy Policy | Terms & Conditions</p>
-  </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-t border-gray-800">
+      <nav class="flex flex-col py-6 px-8 space-y-6 text-center text-lg">
+        <a href="/" class="hover:gold-gradient bg-clip-text text-transparent transition">Home</a>
+        <a href="/privacy.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Privacy Policy</a>
+        <a href="/terms.html" class="hover:gold-gradient bg-clip-text text-transparent transition">Terms & Conditions</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-32 max-w-2xl mx-auto px-6">
+    <div class="bg-black/80 rounded-xl p-10 text-center">
+      <h1 class="text-4xl font-bold gold-gradient bg-clip-text text-transparent mb-8">
+        Get Naples Business Updates via SMS
+      </h1>
+      <p class="text-lg mb-8 text-gray-300">
+        Receive personalized lead nurturing tips, appointment reminders, and revenue-enhancing insights directly to your phone.
+      </p>
+
+      <form action="#" method="POST" class="space-y-6">
+        <input type="text" name="name" placeholder="Your Name" required class="w-full px-6 py-4 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+        <input type="tel" name="phone" placeholder="Phone Number (e.g. +12395551234)" required class="w-full px-6 py-4 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+
+        <label class="flex items-start space-x-4 text-left">
+          <input type="checkbox" name="consent" required class="mt-1 w-6 h-6 text-yellow-400" />
+          <span class="text-sm leading-relaxed">
+            I consent to receive SMS text messages from MarceauSolutions LLC at the number provided. Messages may include business enhancement tips, appointment reminders, and marketing updates. Message & data rates may apply. Reply STOP to unsubscribe at any time.
+          </span>
+        </label>
+
+        <button type="submit" class="w-full gold-gradient text-black font-bold py-4 rounded-lg hover:opacity-90 transition text-xl">
+          Subscribe to SMS Updates
+        </button>
+      </form>
+
+      <p class="text-xs text-gray-400 mt-8">
+        <a href="/privacy.html" class="underline hover:text-white">Privacy Policy</a> • 
+        <a href="/terms.html" class="underline hover:text-white">Terms & Conditions</a>
+      </p>
+    </div>
+  </main>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  </script>
 </body>
 </html>
