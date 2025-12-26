@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Automate Pro - Revolutionize Your Business</title>
+    <title>Marceau Solutions LLC - AI Automation Experts</title>
     <style>
-        /* CSS for modern, clean design: Blues and whites */
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #FFFFFF; color: #333; }
-        header { background-color: #007BFF; color: #FFFFFF; padding: 10px; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        /* Updated CSS: Deep blue (#003366), light blue (#00AEEF), white (#FFFFFF) from logo */
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #FFFFFF; color: #003366; }
+        header { background-color: #003366; color: #FFFFFF; padding: 10px; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        header img { height: 50px; } /* Logo styling */
         nav ul { list-style: none; display: flex; justify-content: center; margin: 0; padding: 0; }
         nav li { margin: 0 15px; }
         nav a { color: #FFFFFF; text-decoration: none; font-weight: bold; }
         section { padding: 60px 20px; text-align: center; }
-        #home { background-color: #E3F2FD; padding-top: 100px; } /* Offset for fixed header */
-        #home h1 { font-size: 2.5em; }
-        .cta { background-color: #007BFF; color: #FFFFFF; padding: 10px 20px; border: none; cursor: pointer; font-size: 1.2em; }
+        #home { background-color: #E3F2FD; padding-top: 100px; } /* Light blue bg */
+        #home h1 { font-size: 2.5em; color: #003366; }
+        .cta { background-color: #00AEEF; color: #FFFFFF; padding: 10px 20px; border: none; cursor: pointer; font-size: 1.2em; }
         #services ul { list-style: none; padding: 0; }
         #services li { background-color: #F8F9FA; margin: 10px auto; padding: 15px; max-width: 600px; border-radius: 5px; }
         #about p { max-width: 800px; margin: 0 auto; }
         #contact form { max-width: 600px; margin: 0 auto; }
         #contact input, #contact textarea { width: 100%; padding: 10px; margin: 10px 0; }
-        footer { background-color: #007BFF; color: #FFFFFF; padding: 10px; text-align: center; }
+        footer { background-color: #003366; color: #FFFFFF; padding: 10px; text-align: center; }
         
-        /* Responsive design: Media query for mobile (screens < 768px) */
+        /* Responsive design */
         @media (max-width: 768px) {
             nav ul { flex-direction: column; }
             nav li { margin: 10px 0; }
@@ -33,19 +34,24 @@
 </head>
 <body>
     <header>
+        <img src="logo_primary.png" alt="Marceau Solutions Logo">
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="opt-in.html">SMS Opt-In</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="compliance.html">Compliance</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="home">
         <h1>Revolutionize Your Business with AI Automation</h1>
-        <p>Using AI tools to make business processes faster and more efficient, saving costs and boosting productivity.</p>
+        <p>Marceau Solutions LLC helps companies in Naples, FL automate tasks using AI for efficiency and cost savings.</p>
         <img src="https://source.unsplash.com/random/800x400/?ai,automation" alt="AI Automation Illustration" style="max-width:100%; height:auto;">
         <button class="cta" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Get Started</button>
     </section>
@@ -53,16 +59,16 @@
     <section id="services">
         <h2>Our Services</h2>
         <ul>
-            <li><strong>Custom AI Bots:</strong> Build bots to handle customer inquiries, reducing response times by up to 70% and cutting costs.</li>
-            <li><strong>AI Workflow Optimization:</strong> Automate repetitive tasks like data entry, improving efficiency and allowing focus on growth.</li>
-            <li><strong>Data Processing with AI:</strong> Analyze large datasets quickly, uncovering insights for better decisions and savings.</li>
-            <li><strong>Custom AI Integrations:</strong> Seamlessly integrate AI into your existing systems for streamlined operations and reduced errors.</li>
+            <li><strong>Custom AI Bots:</strong> Handle inquiries, reduce costs by 70%.</li>
+            <li><strong>AI Workflow Optimization:</strong> Automate tasks for growth focus.</li>
+            <li><strong>Data Processing with AI:</strong> Quick insights for decisions.</li>
+            <li><strong>Custom AI Integrations:</strong> Streamline operations.</li>
         </ul>
     </section>
 
     <section id="about">
         <h2>About Us</h2>
-        <p>We specialize in AI automation for small to medium-sized businesses. Our solutions help automate repetitive tasks using artificial intelligence, such as workflow optimization and data processing. Experience benefits like significant cost savings and efficiency gains.</p>
+        <p>We specialize in AI automation for small to medium businesses in Naples, FL. Benefits include cost savings and efficiency.</p>
         <img src="https://source.unsplash.com/random/800x400/?team,tech" alt="Our Team" style="max-width:100%; height:auto;">
     </section>
 
@@ -77,11 +83,11 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 AI Automate Pro. All rights reserved. | <a href="#home" style="color:#FFFFFF;">Back to Top</a></p>
+        <p>&copy; 2025 Marceau Solutions LLC. All rights reserved. | <a href="#home" style="color:#FFFFFF;">Back to Top</a></p>
     </footer>
 
     <script>
-        // JS for smooth scrolling on nav links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -89,18 +95,11 @@
             });
         });
 
-        // Basic JS for contact form submission simulation (prevents default, shows alert)
+        // Contact form simulation
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            if (name && email && message) {
-                alert('Thank you! Your message has been sent.');
-                this.reset(); // Clear form
-            } else {
-                alert('Please fill out all fields.');
-            }
+            alert('Thank you! Your message has been sent.');
+            this.reset();
         });
     </script>
 </body>
