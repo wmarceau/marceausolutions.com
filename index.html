@@ -3,104 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marceau Solutions LLC - AI Automation Experts</title>
-    <style>
-        /* Updated CSS: Deep blue (#003366), light blue (#00AEEF), white (#FFFFFF) from logo */
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #FFFFFF; color: #003366; }
-        header { background-color: #003366; color: #FFFFFF; padding: 10px; position: fixed; width: 100%; top: 0; z-index: 1000; }
-        header img { height: 50px; } /* Logo styling */
-        nav ul { list-style: none; display: flex; justify-content: center; margin: 0; padding: 0; }
-        nav li { margin: 0 15px; }
-        nav a { color: #FFFFFF; text-decoration: none; font-weight: bold; }
-        section { padding: 60px 20px; text-align: center; }
-        #home { background-color: #E3F2FD; padding-top: 100px; } /* Light blue bg */
-        #home h1 { font-size: 2.5em; color: #003366; }
-        .cta { background-color: #00AEEF; color: #FFFFFF; padding: 10px 20px; border: none; cursor: pointer; font-size: 1.2em; }
-        #services ul { list-style: none; padding: 0; }
-        #services li { background-color: #F8F9FA; margin: 10px auto; padding: 15px; max-width: 600px; border-radius: 5px; }
-        #about p { max-width: 800px; margin: 0 auto; }
-        #contact form { max-width: 600px; margin: 0 auto; }
-        #contact input, #contact textarea { width: 100%; padding: 10px; margin: 10px 0; }
-        footer { background-color: #003366; color: #FFFFFF; padding: 10px; text-align: center; }
-        
-        /* Responsive design */
-        @media (max-width: 768px) {
-            nav ul { flex-direction: column; }
-            nav li { margin: 10px 0; }
-            section { padding: 40px 10px; }
-            #home h1 { font-size: 2em; }
-        }
-    </style>
+    <title>Marceau Solutions: AI Automation for Personal Trainers</title>
+    <meta name="description" content="AI tools for personal trainers: lead automation, scheduling, program docs. Embrace the Pain & Defy the Odds.">
+    <meta name="keywords" content="AI for personal trainers, lead automation fitness, online trainer tools">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-black text-white">
     <header>
-        <img src="logo_primary.png" alt="Marceau Solutions Logo">
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="opt-in.html">SMS Opt-In</a></li>
-                <li><a href="privacy.html">Privacy</a></li>
-                <li><a href="terms.html">Terms</a></li>
-                <li><a href="compliance.html">Compliance</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <!-- Logo SVG -->
+                    <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="25" cy="25" r="20" fill="#FFD700"/>
+                        <path d="M25 5C14 5 5 14 5 25S14 45 25 45 45 36 45 25 36 5 25 5zm0 38c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.6 0 6.9 1.5 9.2 4L25 43z" fill="#000000"/>
+                    </svg>
+                    Marceau Solutions
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Services</a>
+                            <ul class="dropdown-menu bg-dark">
+                                <li><a class="dropdown-item text-white" href="services.html#lead">Lead Nurturing</a></li>
+                                <li><a class="dropdown-item text-white" href="services.html#sales">Sales Automation</a></li>
+                                <li><a class="dropdown-item text-white" href="services.html#ai">AI Assistants</a></li>
+                                <li><a class="dropdown-item text-white" href="services.html#docs">Documentation Automation</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+                        <li class="nav-item"><a class="nav-link" href="signup.html">Signup</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
-
-    <section id="home">
-        <h1>Revolutionize Your Business with AI Automation</h1>
-        <p>Marceau Solutions LLC helps companies in Naples, FL automate tasks using AI for efficiency and cost savings.</p>
-        <img src="https://source.unsplash.com/random/800x400/?ai,automation" alt="AI Automation Illustration" style="max-width:100%; height:auto;">
-        <button class="cta" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Get Started</button>
-    </section>
-
-    <section id="services">
-        <h2>Our Services</h2>
-        <ul>
-            <li><strong>Custom AI Bots:</strong> Handle inquiries, reduce costs by 70%.</li>
-            <li><strong>AI Workflow Optimization:</strong> Automate tasks for growth focus.</li>
-            <li><strong>Data Processing with AI:</strong> Quick insights for decisions.</li>
-            <li><strong>Custom AI Integrations:</strong> Streamline operations.</li>
-        </ul>
-    </section>
-
-    <section id="about">
-        <h2>About Us</h2>
-        <p>We specialize in AI automation for small to medium businesses in Naples, FL. Benefits include cost savings and efficiency.</p>
-        <img src="https://source.unsplash.com/random/800x400/?team,tech" alt="Our Team" style="max-width:100%; height:auto;">
-    </section>
-
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <form id="contactForm">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" placeholder="Your Message" required></textarea>
-            <button type="submit" class="cta">Submit</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Marceau Solutions LLC. All rights reserved. | <a href="#home" style="color:#FFFFFF;">Back to Top</a></p>
+    <main>
+        <section class="hero bg-black text-center py-5">
+            <div class="container">
+                <h1 class="display-1 fw-bold" style="font-family: 'Montserrat', sans-serif; color: #FFD700;">Embrace the Pain & Defy the Odds</h1>
+                <img src="https://via.placeholder.com/1200x600/000000/FFD700?text=Motivational+Fitness+Scene+with+AI" alt="Hero Image" class="img-fluid mb-4">
+                <p class="lead">Build Your Fitness Empire with AI – Conquer Clients Like a Champ.</p>
+                <p>Grand Slam Offer: $97/mo AI Lead Automation + Free Client Templates, Bonus Coaching Call, 30-Day Money-Back Guarantee.</p>
+                <a href="signup.html" class="btn btn-lg" style="background-color: #FFD700; color: #000000;">Start Free Trial</a>
+            </div>
+        </section>
+        <!-- Add more sections like services teaser, testimonials teaser -->
+    </main>
+    <footer class="bg-black text-center py-3">
+        <div class="container">
+            <p>&copy; 2025 Marceau Solutions. All rights reserved.</p>
+            <a href="privacy.html" class="text-gold">Privacy Policy</a> | <a href="terms.html" class="text-gold">Terms of Service</a>
+            <!-- Social icons placeholder -->
+        </div>
     </footer>
-
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Contact form simulation
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you! Your message has been sent.');
-            this.reset();
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
