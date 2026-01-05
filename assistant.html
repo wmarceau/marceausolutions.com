@@ -210,6 +210,81 @@
             0%, 60%, 100% { transform: translateY(0); }
             30% { transform: translateY(-10px); }
         }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .capability-card {
+                padding: 16px;
+                margin-bottom: 12px;
+            }
+            .capability-icon {
+                font-size: 1.5rem;
+            }
+            .capability-title {
+                font-size: 1rem;
+            }
+            .capability-description {
+                font-size: 0.85rem;
+            }
+            .example-prompts {
+                padding: 8px;
+            }
+            .example-prompt {
+                font-size: 0.8rem;
+            }
+            .chat-container {
+                padding: 16px;
+            }
+            .chat-messages {
+                max-height: 350px;
+                padding: 12px;
+            }
+            .message {
+                font-size: 0.9rem;
+                max-width: 90%;
+            }
+            .chat-input {
+                min-height: 50px;
+                font-size: 0.9rem;
+            }
+            .send-button {
+                padding: 10px 20px;
+                height: 50px;
+                font-size: 0.9rem;
+            }
+            .file-upload-area {
+                padding: 16px;
+                font-size: 0.9rem;
+            }
+            h1.display-4 {
+                font-size: 1.8rem !important;
+            }
+            .lead {
+                font-size: 1rem;
+            }
+        }
+
+        /* Instructions banner */
+        .instructions-banner {
+            background: linear-gradient(135deg, #FFD700 0%, #C9A961 100%);
+            color: #000;
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .instructions-banner strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        .instructions-list {
+            margin: 8px 0 0 0;
+            padding-left: 20px;
+        }
+        .instructions-list li {
+            margin: 4px 0;
+        }
     </style>
 </head>
 <body class="bg-black text-white">
@@ -258,6 +333,18 @@
                     <span class="status-indicator status-online"></span>
                     <span id="status-text" class="text-success">System Ready</span>
                 </div>
+            </div>
+
+            <!-- Instructions Banner -->
+            <div class="instructions-banner">
+                <strong>🎯 How to Use This AI Assistant:</strong>
+                <ol class="instructions-list">
+                    <li><strong>Click a capability card below</strong> to see example prompts</li>
+                    <li><strong>Upload files</strong> (videos/images) using the drag-and-drop area</li>
+                    <li><strong>Type your request</strong> in natural language in the chat box</li>
+                    <li><strong>Hit Send or Enter</strong> and the AI will help you!</li>
+                </ol>
+                <div class="small mt-2">💡 <strong>Try saying:</strong> "Edit this video with jump cuts" (with video attached) or "Show me my revenue analytics"</div>
             </div>
 
             <!-- Capabilities Overview -->
@@ -397,12 +484,12 @@
             document.getElementById('chatInput').focus();
         }
 
-        // Handle file selection
-        let attachedFiles = [];
+        // Handle file selection - make globally accessible
+        window.attachedFiles = [];
 
         function handleFileSelect(event) {
             const files = Array.from(event.target.files);
-            attachedFiles = attachedFiles.concat(files);
+            window.attachedFiles = window.attachedFiles.concat(files);
             displayAttachedFiles();
         }
 
@@ -410,7 +497,7 @@
             const container = document.getElementById('attachedFiles');
             container.innerHTML = '';
 
-            attachedFiles.forEach((file, index) => {
+            window.attachedFiles.forEach((file, index) => {
                 const fileTag = document.createElement('div');
                 fileTag.className = 'file-tag';
                 fileTag.innerHTML = `
@@ -422,7 +509,7 @@
         }
 
         function removeFile(index) {
-            attachedFiles.splice(index, 1);
+            window.attachedFiles.splice(index, 1);
             displayAttachedFiles();
         }
 
@@ -443,7 +530,7 @@
             uploadArea.classList.remove('dragover');
 
             const files = Array.from(e.dataTransfer.files);
-            attachedFiles = attachedFiles.concat(files);
+            window.attachedFiles = window.attachedFiles.concat(files);
             displayAttachedFiles();
         });
 
@@ -455,15 +542,20 @@
             }
         }
 
-        // Send message (will be implemented in assistant.js)
+        // Send message
         function sendMessage() {
             const input = document.getElementById('chatInput');
             const message = input.value.trim();
 
-            if (!message && attachedFiles.length === 0) return;
+            if (!message && window.attachedFiles.length === 0) return;
 
             // Add user message to chat
-            addMessage(message, 'user');
+            if (message) {
+                addMessage(message, 'user');
+            }
+            if (window.attachedFiles.length > 0) {
+                addMessage(`📎 ${window.attachedFiles.length} file(s) attached`, 'user');
+            }
 
             // Clear input
             input.value = '';
@@ -471,8 +563,8 @@
             // Show typing indicator
             document.getElementById('typingIndicator').classList.add('active');
 
-            // Process request (this will be implemented in assistant.js)
-            processUserRequest(message, attachedFiles);
+            // Process request
+            processUserRequest(message, window.attachedFiles);
         }
 
         function addMessage(text, sender) {
