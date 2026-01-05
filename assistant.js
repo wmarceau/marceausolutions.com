@@ -289,20 +289,36 @@ async function handleAdCreation(message, files, intent) {
     if (hasVideo) assetInfo += '• Video footage<br>';
     if (hasImages) assetInfo += `• ${files.filter(f => f.type.startsWith('image/')).length} image(s)<br>`;
 
+    // If they have a video, suggest editing it first
+    if (hasVideo) {
+        return `
+            🎬 I see you want to create an ad with video footage!<br><br>
+            <strong>Here's how I can help RIGHT NOW:</strong><br><br>
+            <strong>✅ Step 1: Video Editing (Available Now!)</strong><br>
+            I can edit your video with automatic jump cuts to remove silence and awkward pauses. Just say:<br>
+            • "Edit this video with jump cuts"<br>
+            • "Remove all silence from this video"<br><br>
+            <strong>⏳ Full Ad Creation Workflow (Coming Soon):</strong><br>
+            Eventually I'll be able to combine multiple assets, add graphics, music, and export platform-optimized versions automatically.<br><br>
+            <strong>For now:</strong> Let me edit your video first, then you can add graphics/text with other tools!
+        `;
+    }
+
     return `
-        🎬 Creating advertisement for your ${message.includes('fitness') ? 'Fitness AI Assistant' : 'product'}...<br><br>
+        🎬 I can help create marketing content!<br><br>
         <strong>Assets provided:</strong><br>
-        ${assetInfo}<br>
-        <em>Note: Ad creation workflow coming soon! This will:</em><br>
-        1. Analyze your uploaded assets<br>
-        2. Edit video with jump cuts if needed<br>
-        3. Generate branded graphics<br>
-        4. Combine into polished 30-60 second ad<br>
-        5. Optimize for Instagram/YouTube/TikTok<br><br>
-        For now, you can:<br>
-        • Upload your video and I'll edit it with jump cuts<br>
-        • Request branded graphics with your messaging<br>
-        • Generate AI images for backgrounds
+        ${assetInfo || '• None (text-only request)'}<br><br>
+        <strong>What I can do RIGHT NOW:</strong><br>
+        • <strong>Video Editing:</strong> Upload a video and say "edit this with jump cuts"<br>
+        • <strong>Graphics:</strong> Request branded graphics (coming soon)<br>
+        • <strong>AI Images:</strong> Generate backgrounds (coming soon)<br><br>
+        <strong>⏳ Full Ad Creation:</strong><br>
+        The complete ad workflow (combining video, graphics, music into a polished 30-60 second ad) is coming soon!<br><br>
+        <strong>Best approach for now:</strong><br>
+        1. Upload your video<br>
+        2. Say "edit this with jump cuts"<br>
+        3. Download the edited version<br>
+        4. Add text/graphics with Canva or similar tools
     `;
 }
 
