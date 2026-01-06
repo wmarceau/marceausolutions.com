@@ -82,6 +82,81 @@ async function handleAIChat(message) {
 function formatAIResponse(data) {
     const { content, task_type, executed_by, costs, arbitration } = data;
 
+    // Brand research response
+    if (task_type === 'brand_research' && content && content.type === 'brand_profile') {
+        const profile = content.profile;
+        const handle = content.handle;
+
+        // Format brand profile nicely
+        const voiceSection = profile.brand_voice ? `
+            <div style="margin: 10px 0;">
+                <strong>🎤 Brand Voice:</strong><br>
+                <span style="color: #FFD700;">Tone:</span> ${profile.brand_voice.tone || 'N/A'}<br>
+                <span style="color: #FFD700;">Personality:</span> ${profile.brand_voice.personality || 'N/A'}
+            </div>
+        ` : '';
+
+        const visualSection = profile.visual_style ? `
+            <div style="margin: 10px 0;">
+                <strong>🎨 Visual Style:</strong><br>
+                <span style="color: #FFD700;">Aesthetic:</span> ${profile.visual_style.aesthetic || 'N/A'}<br>
+                <span style="color: #FFD700;">Colors:</span> ${(profile.visual_style.color_palette || []).join(', ')}<br>
+                <span style="color: #FFD700;">Photography:</span> ${profile.visual_style.photography_style || 'N/A'}
+            </div>
+        ` : '';
+
+        const audienceSection = profile.target_audience ? `
+            <div style="margin: 10px 0;">
+                <strong>👥 Target Audience:</strong><br>
+                <span style="color: #FFD700;">Demographics:</span> ${profile.target_audience.demographics || 'N/A'}<br>
+                <span style="color: #FFD700;">Fitness Level:</span> ${profile.target_audience.fitness_level || 'N/A'}
+            </div>
+        ` : '';
+
+        const adRecsSection = profile.ad_recommendations ? `
+            <div style="margin: 10px 0;">
+                <strong>📢 Ad Recommendations:</strong><br>
+                <span style="color: #FFD700;">Best Formats:</span> ${(profile.ad_recommendations.best_formats || []).join(', ')}<br>
+                <span style="color: #FFD700;">Messaging:</span> ${profile.ad_recommendations.messaging_angle || 'N/A'}
+            </div>
+        ` : '';
+
+        return `
+            <div style="background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%); border: 2px solid #FFD700; border-radius: 12px; padding: 20px; margin: 10px 0;">
+                <strong style="color: #FFD700; font-size: 1.3em;">📊 Brand Profile: @${handle}</strong><br>
+                <span style="font-size: 1.1em;">${profile.brand_name || handle}</span><br>
+                <em style="color: #999;">${profile.tagline || ''}</em>
+            </div>
+
+            ${voiceSection}
+            ${visualSection}
+            ${audienceSection}
+
+            <div style="margin: 10px 0;">
+                <strong>💡 Unique Differentiator:</strong><br>
+                ${profile.unique_differentiator || 'N/A'}
+            </div>
+
+            <div style="margin: 10px 0;">
+                <strong>🎯 Brand Values:</strong><br>
+                ${(profile.brand_values || []).join(' • ')}
+            </div>
+
+            ${adRecsSection}
+
+            <div style="background: rgba(255,215,0,0.1); border: 1px solid #FFD700; border-radius: 8px; padding: 15px; margin-top: 15px;">
+                <strong>✅ Profile Saved!</strong><br>
+                <span style="font-size: 0.9em;">Now when you create ads, say "create a video ad for @${handle}" and I'll personalize it to match this brand's style!</span>
+            </div>
+
+            <details style="margin-top: 10px; font-size: 0.85em; opacity: 0.8;">
+                <summary>🤖 Research Details</summary>
+                <p><strong>Confidence:</strong> ${(profile.confidence_score * 100).toFixed(0)}%</p>
+                <p><strong>Cost:</strong> $${costs.total.toFixed(4)}</p>
+            </details>
+        `;
+    }
+
     // Ad creation package response (both AIs collaborated) - handles both ad_package and ad_package_with_video
     if (task_type === 'ad_creation' && content && (content.type === 'ad_package' || content.type === 'ad_package_with_video')) {
         let imagesHtml = '';
