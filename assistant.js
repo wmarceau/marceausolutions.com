@@ -442,17 +442,20 @@ async function handleGraphicCreation(message, files, intent) {
         const data = await response.json();
 
         if (data.success) {
+            // Handle base64 image data from updated API
+            const imageUrl = data.image_data || data.output_url;
             return `
                 ✅ Branded graphic created!<br><br>
+                <img src="${imageUrl}" alt="Generated graphic" style="max-width: 100%; border-radius: 8px; margin: 10px 0;"><br><br>
                 <strong>Title:</strong> "${title}"<br>
                 <strong>Points:</strong><br>
                 ${cleanPoints.map(p => `• ${p}`).join('<br>')}<br><br>
                 <strong>Platform:</strong> ${platform}<br><br>
-                <a href="${data.output_url}" class="btn btn-gold" download>⬇️ Download Graphic</a><br><br>
+                <a href="${imageUrl}" class="btn btn-gold" download="fitness_graphic.jpg">⬇️ Download Graphic</a><br><br>
                 <em>Ready to post to ${platform}!</em>
             `;
         } else {
-            throw new Error(data.message || 'Graphic creation failed');
+            throw new Error(data.message || data.detail || 'Graphic creation failed');
         }
     } catch (error) {
         throw new Error(`Graphic creation failed: ${error.message}`);
